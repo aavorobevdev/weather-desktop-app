@@ -1,7 +1,23 @@
 import React, { FC } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
 
-type SearchProps = {};
+type Option = {
+  label: string;
+};
 
-const Search: FC<SearchProps> = (props) => {
-  return <div>Search</div>;
+type SearchProps = {
+  options: Option[];
+};
+
+export const Search: FC<SearchProps> = ({ options }) => {
+  return (
+    <div>
+      <Autocomplete
+        disablePortal
+        options={options}
+        fullWidth
+        renderInput={(params) => <TextField {...params} label="City" />}
+      />
+    </div>
+  );
 };
