@@ -1,17 +1,18 @@
+import { Container } from '@mui/material';
 import './App.scss';
-import { Search } from './components/search';
+
+import { HomePage } from './pages/home/HomePage';
 
 console.log(
   '[App.tsx]',
   `Hello world from Electron ${process.versions.electron}!`
 );
-const options = [{ label: '1' }, { label: '2' }, { label: '3' }];
 
 function App() {
   return (
-    <div className="App">
-      <Search options={options} />
-    </div>
+    <Container sx={{ padding: 20 }}>
+      <HomePage />
+    </Container>
   );
 }
 
