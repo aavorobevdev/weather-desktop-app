@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Card, Divider, Stack, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 
 export interface Weather {
   city: string;
@@ -37,8 +38,6 @@ interface CurrentWeatherCardProps {
 export const CurrentWeatherCard: FC<CurrentWeatherCardProps> = ({
   currentWeather,
 }) => {
-  console.log(currentWeather, 'currentWeather');
-
   return (
     <Card
       sx={{
@@ -49,7 +48,18 @@ export const CurrentWeatherCard: FC<CurrentWeatherCardProps> = ({
       }}
     >
       <Stack gap={2}>
-        <Typography variant="h4">{currentWeather.city}</Typography>
+        <Stack>
+          <Box>
+            <Typography variant="h4">{currentWeather.city}</Typography>
+            <Typography variant="overline">
+              {currentWeather.weather[0].description}
+            </Typography>
+          </Box>
+          <img
+            alt="weather-icon"
+            src={`/icons/${currentWeather.weather[0].icon}.png`}
+          />
+        </Stack>
         <Divider />
         <Typography variant="h5">{currentWeather.main.temp} °C</Typography>
         <Typography variant="overline">Details</Typography>
@@ -57,9 +67,7 @@ export const CurrentWeatherCard: FC<CurrentWeatherCardProps> = ({
           Feels like: {currentWeather.main.feels_like} °C
         </Typography>
       </Stack>
-      <Stack alignItems="center">
-        <Typography variant="h5">{currentWeather.weather[0].main}</Typography>
-      </Stack>
+      <Stack alignItems="center"></Stack>
     </Card>
   );
 };
