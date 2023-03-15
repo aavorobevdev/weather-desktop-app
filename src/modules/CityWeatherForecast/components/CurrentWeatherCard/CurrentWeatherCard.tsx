@@ -48,9 +48,9 @@ export const CurrentWeatherCard: FC<CurrentWeatherCardProps> = ({
       }}
     >
       <Stack gap={2}>
-        <Stack>
+        <Stack direction="row">
           <Box>
-            <Typography variant="h4">{currentWeather.city}</Typography>
+            <Typography variant="h5">{currentWeather.city}</Typography>
             <Typography variant="overline">
               {currentWeather.weather[0].description}
             </Typography>
