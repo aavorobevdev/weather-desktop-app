@@ -1,6 +1,5 @@
 import React, { FC, PropsWithChildren, useState } from 'react';
-import { Stack } from '@mui/material';
-import { Box } from '@mui/system';
+import { Paper, Stack } from '@mui/material';
 import { getCurrentWeather, getForecastWeather } from '../../api/getWeather';
 import { CurrentWeatherCard } from '../CurrentWeatherCard/CurrentWeatherCard';
 import { SearchCity } from '../SearchCity/SearchCity';
@@ -25,13 +24,13 @@ export const CityWeatherForecast: FC<PropsWithChildren> = ({ children }) => {
       .catch((error) => console.error(error));
   };
   return (
-    <Box sx={{ width: 750, padding: 2 }}>
+    <Paper sx={{ width: 750, height: '100%', padding: 2 }}>
       <Stack gap={10}>
         <SearchCity onChange={onCityChange} />
         {currentWeather && (
           <CurrentWeatherCard currentWeather={currentWeather} />
         )}
       </Stack>
-    </Box>
+    </Paper>
   );
 };

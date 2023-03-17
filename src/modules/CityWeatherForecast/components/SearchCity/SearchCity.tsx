@@ -11,7 +11,6 @@ export const SearchCity: FC<PropsWithChildren<SearchCityProps>> = ({
   onChange,
 }) => {
   const [city, setCity] = useState('');
-  const [selectedCity, setSelectedCity] = useState({});
   const [citiesOptions, setCitiesOptions] = useState([]);
   const debouncedCity = useDebounce(city);
 
@@ -54,7 +53,9 @@ export const SearchCity: FC<PropsWithChildren<SearchCityProps>> = ({
         disablePortal
         options={citiesOptions}
         onChange={(_, value) => onChange(value)}
-        renderInput={(params) => <TextField {...params} label="City" />}
+        renderInput={(params) => (
+          <TextField {...params} color="secondary" label="City" />
+        )}
       />
     </>
   );

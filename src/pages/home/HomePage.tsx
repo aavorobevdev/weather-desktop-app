@@ -10,8 +10,8 @@ export const HomePage: FC<PropsWithChildren<HomePageProps>> = ({
   children,
 }) => {
   return (
-    <Container>
+    <>
       <CityWeatherForecast />
-    </Container>
+    </>
   );
 };
