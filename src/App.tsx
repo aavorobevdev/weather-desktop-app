@@ -1,5 +1,6 @@
 import { Container } from '@mui/material';
 import './App.scss';
+import { StarsBackground } from './components/StarsBackground';
 
 import { HomePage } from './pages/home/HomePage';
 
@@ -10,9 +11,14 @@ console.log(
 
 function App() {
   return (
-    <Container sx={{ padding: 20 }}>
-      <HomePage />
-    </Container>
+    <>
+      <StarsBackground />
+      <Container
+        sx={{ display: 'flex', justifyContent: 'center', padding: 20 }}
+      >
+        <HomePage />
+      </Container>
+    </>
   );
 }
 
